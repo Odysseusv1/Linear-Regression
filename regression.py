@@ -22,9 +22,11 @@ def correlation_coefficient(X, y):
     numerator = np.sum((X - X_mean) * (y - y_mean))
     denominator = np.sqrt(np.sum((X - X_mean) ** 2) * np.sum((y - y_mean) ** 2))
     return numerator / denominator
+def mean_squared_error(y, y_pred):
+    return np.mean((y - y_pred) ** 2)
 
 slope, intercept = linear_regression(X, y)
-# Predict values
+mse = mean_squared_error(y, y_pred)
 y_pred = slope * X + intercept
 correlation_coefficient = correlation_coefficient(X, y)
 
@@ -32,6 +34,8 @@ correlation_coefficient = correlation_coefficient(X, y)
 print(f'Coefficient: {slope}')
 print(f'Intercept: {intercept}')
 print(f'Correlation coefficient: {correlation_coefficient}')
+print(f'R^2: {correlation_cofficient**2}')
+print(f'Mean Squared Error: {mse}')
 
 # Plot the results using matplotlib
 plt.scatter(X, y, color='blue', label='Actual data')
