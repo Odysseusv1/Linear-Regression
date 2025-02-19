@@ -2,19 +2,19 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Sample data
-X = np.array([1, 2, 3, 4, 5])
+x = np.array([1, 2, 3, 4, 5])
 y = np.array([1, 3, 2, 5, 4])
 
 # Calculate the coefficients
-X_mean = np.mean(X)
+x_mean = np.mean(x)
 y_mean = np.mean(y)
-numerator = np.sum((X - X_mean) * (y - y_mean))
-denominator = np.sum((X - X_mean) ** 2)
+numerator = np.sum((x - x_mean) * (y - y_mean))
+denominator = np.sum((x - x_mean) ** 2)
 slope = numerator / denominator
-intercept = y_mean - slope * X_mean
+intercept = y_mean - slope * x_mean
 
 # Predict values
-y_pred = slope * X + intercept
+y_pred = slope * x + intercept
 
 # Print the coefficients
 print(f'Coefficient: {slope}')
